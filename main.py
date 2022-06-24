@@ -8,7 +8,7 @@ okcliqué = {'cliqué': False}
 historique = True
 print("cela ne devrait pas s'écrire")
 
-with open("/home/sandrine-remy/Quentin/Programation/Thempmesure/log.txt", "a") as fichier:
+with open("log.txt", "a") as fichier:
     fichier.truncate(0)
 
 def ajournercpu():
@@ -71,14 +71,14 @@ def changercouleur():
             return
 
 def cleanhistorique():
-    with open("/home/sandrine-remy/Quentin/Programation/Thempmesure/log.txt", "a") as fichier:
+    with open("log.txt", "a") as fichier:
         fichier.truncate(0)
 
 def consulterhistorique():
 
     def actuhistorique():
 
-        with open("/home/sandrine-remy/Quentin/Programation/Thempmesure/log.txt", "r+") as fichier:
+        with open("log.txt", "r+") as fichier:
             contenu.insert(END,fichier.readlines())
             contenu.see("end")
             contenu.after(100, actuhistorique)
