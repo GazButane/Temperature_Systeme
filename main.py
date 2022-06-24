@@ -27,7 +27,7 @@ def ajournercpu():
             messagebox.showwarning('Attention', 'La température a dépassé les 90°C !')
             okcliqué['cliqué'] = True
     if historique == True:
-        with open("/home/sandrine-remy/Quentin/Programation/Thempmesure/log.txt", "a") as fichier:
+        with open("log.txt", "a") as fichier:
             fichier.write(f"\n{strftime('%H:%M:%S')}- - - - - - -Température CPU ==>{lecturecpu/1000}°C")
 
 
