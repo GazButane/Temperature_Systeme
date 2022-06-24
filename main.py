@@ -28,7 +28,7 @@ def ajournercpu():
             okcliqué['cliqué'] = True
     if historique == True:
         with open("log.txt", "a") as fichier:
-            fichier.write(f"\n{strftime('%H:%M:%S')}- - - - - - -Température CPU ==>{lecturecpu/1000}°C")
+            fichier.write(f"\n{strftime('%d-%b-%y/%H:%M:%S')}- - - - - - -Température CPU ==>{lecturecpu/1000}°C")
 
 
     tempcpu.after(100, ajournercpu)
