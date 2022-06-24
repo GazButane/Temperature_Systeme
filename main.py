@@ -121,48 +121,48 @@ superframe.pack(side=LEFT, fill=X)
 framegeneralecpu = Frame(superframe, background=couleur2sombre, relief=FLAT, bd=1, width=100)
 framegeneralecpu.pack(side=TOP, fill=X)
 
-framecpu = Frame(framegeneralecpu, pady=50, bd=5, bg=couleur2sombre)
+framecpu = Frame(framegeneralecpu, pady=70, bd=5, bg=couleur2sombre)
 framecpu.pack(side=LEFT, fill=X)
 
-titrecpu =  Label(framecpu, text="Thempérature du CPU:", font=("Ubuntu Regular", 12), bg=couleur2sombre, fg="White")
+titrecpu =  Label(framecpu, text="Thempérature CPU:", font=("Cantarell Extra Bold", 12), bg=couleur2sombre, fg="White", width=18)
 titrecpu.pack(side=LEFT)
 
-tempcpu =  Label(framecpu, text="Loading...", font=("Free Mono", 20), fg="Black", bg="White", pady=0)
+tempcpu =  Label(framecpu, text="Loading...", font=("Free Mono", 20), fg="Black", bg="White", pady=0, width=5)
 tempcpu.pack(side=RIGHT)
 
-cpuhealth = Label(framegeneralecpu, text="...", font=("Cantarell Extra Bold", 16),bg="grey")
+cpuhealth = Label(framegeneralecpu, text="...", font=("Cantarell Extra Bold", 16),bg="grey", width=10)
 cpuhealth.pack(side="right")
 
 framegeneralegpu = Frame(superframe, background=couleur2sombre, relief=FLAT, bd=1, width=100)
 framegeneralegpu.pack(side=TOP, fill=X)
 
-framegpu = Frame(framegeneralegpu, pady=50, bd=5, bg=couleur2sombre)
+framegpu = Frame(framegeneralegpu, pady=70, bd=5, bg=couleur2sombre)
 framegpu.pack(side=LEFT, fill=X)
 
-titregpu =  Label(framegpu, text="Thempérature du GPU:", font=("Ubuntu Regular", 12), bg=couleur2sombre, fg="White")
+titregpu =  Label(framegpu, text="Thempérature GPU:", font=("Cantarell Extra Bold", 12), bg=couleur2sombre, fg="White", width=18)
 titregpu.pack(side=LEFT)
 
-tempgpu =  Label(framegpu, text="...", font=("Free Mono", 20), fg="Black", bg="White", pady=0)
+tempgpu =  Label(framegpu, text="...", font=("Free Mono", 20), fg="Black", bg="White", pady=0, width=5)
 tempgpu.pack(side=RIGHT)
 
-gpuhealth = Label(framegeneralegpu, text="...", font=("Cantarell Extra Bold", 16),bg="grey")
+gpuhealth = Label(framegeneralegpu, text="...", font=("Cantarell Extra Bold", 16),bg="grey", width=10)
 gpuhealth.pack(side="right")
 
 
 frameparametres = Frame(root, background=couleur2sombre)
 frameparametres.pack(anchor=SE)
 
-cleanbutton = Button(frameparametres,text="Vider l'historique", command=cleanhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376")
-cleanbutton.pack(side=TOP)
 
-boutouvrirhistorique = Button(frameparametres,text="Consulter l'historique", command=consulterhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376")
+boutouvrirhistorique = Button(frameparametres,text="→ Consulter l'historique", command=consulterhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376")
 boutouvrirhistorique.pack(side=TOP)
 
-bouttheme = Button(frameparametres,text="Basculer le theme", command= changercouleur, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376")
+bouttheme = Button(frameparametres,text="🌓 Basculer le theme", command= changercouleur, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376")
 bouttheme.pack(side=TOP)
 
+cleanbutton = Button(frameparametres,text="Vider l'historique", command=cleanhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#DEB419")
+cleanbutton.pack(side=TOP)
 
-quitter = Button(frameparametres, text="Quitter", command= fermerfenetre, font=("Umpush", 10), relief=SUNKEN, bd=0, bg="#2C323C", width=20, highlightthickness=0, activebackground="#CC0000")
+quitter = Button(frameparametres, text=" Quitter", command= fermerfenetre, font=("Umpush", 10), relief=SUNKEN, bd=0, bg="#2C323C", width=20, highlightthickness=0, activebackground="#CC0000")
 quitter.pack(side=BOTTOM)
 
 ajournercpu()
