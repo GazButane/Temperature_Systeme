@@ -1,11 +1,13 @@
 import time
+import clipboard
 import tkinter
 from tkinter import*
 from tkinter import messagebox
 from time import strftime
 
+
 okcliqué = {'cliqué': False}
-autoscroll = {'scroll': 0}
+scroll = 0
 historique = True
 print("cela ne devrait pas s'écrire")
 
@@ -81,9 +83,10 @@ def consulterhistorique():
 
         with open("log.txt", "r+") as fichier:
             contenu.insert(END,fichier.readlines())
+            autoscroll = {'scroll' : scroll}
             if autoscroll['scroll'] == 0:
                 contenu.see("end")
-            print((autoscroll['scroll']))
+            print(scroll)
             contenu.after(100, actuhistorique)
 
 
@@ -96,10 +99,18 @@ def consulterhistorique():
 
     contenu = tkinter.Text(fenetrehistorique,font=("Nimbus Mono PS",12))
     contenu.pack(expand=YES,fill=X)
-    boutonscroll = Checkbutton(fenetrehistorique,variable=(autoscroll['scroll']), text="Autoscroll", font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376",anchor=W)
+    boutonscroll = Checkbutton(fenetrehistorique,variable=scroll, text="Autoscroll", font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376",anchor=W)
     boutonscroll.pack(anchor=SE)
     actuhistorique()
     fenetrehistorique.mainloop()
+
+
+def copierhistorique():
+    with open("log.txt", "r") as fichier:
+        clipboard.copy(fichier.read())
+    copybutton.config(text="❒  Copié !")
+    print("copié !")
+
 
 #coul d'arrière plan:
 couleur1sombre = str("#1D2932")
@@ -157,16 +168,20 @@ frameparametres = Frame(root, background=couleur2sombre)
 frameparametres.pack(anchor=SE)
 
 
-boutouvrirhistorique = Button(frameparametres,text="→ Historique", command=consulterhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376",anchor=W)
+boutouvrirhistorique = Button(frameparametres,text="➜ Historique", command=consulterhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376",anchor=W)
 boutouvrirhistorique.pack(side=TOP)
 
 bouttheme = Button(frameparametres,text="🌓 Apparence", command= changercouleur, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376",anchor=W)
 bouttheme.pack(side=TOP)
 
-cleanbutton = Button(frameparametres,text="⚙ Vider l'historique", command=cleanhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#DEB419",anchor=W)
+
+copybutton = Button(frameparametres,text="❒  Copier l'historique", command= copierhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#576376",anchor=W)
+copybutton.pack(side=TOP)
+
+cleanbutton = Button(frameparametres,text="✀ Vider l'historique", command=cleanhistorique, font=("Umpush",10),relief=GROOVE,bd=0,bg="#2C323C",fg="#CAD0DA",width=20,highlightthickness=0,activebackground="#DEB419",anchor=W)
 cleanbutton.pack(side=TOP)
 
-quitter = Button(frameparametres, text="X Quitter", command= fermerfenetre, font=("Umpush", 10), relief=GROOVE, bd=0, bg="#2C323C",fg="#CAD0DA", width=20, highlightthickness=0, activebackground="#CC0000",anchor=W)
+quitter = Button(frameparametres, text="✖ Quitter", command= fermerfenetre, font=("Umpush", 10), relief=GROOVE, bd=0, bg="#2C323C",fg="#CAD0DA", width=20, highlightthickness=0, activebackground="#CC0000",anchor=W)
 quitter.pack(side=BOTTOM)
 
 ajournercpu()
